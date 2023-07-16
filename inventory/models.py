@@ -1,7 +1,9 @@
 from django.db import models
-
+from vendor.models import Vendor
 # Create your models here.
 class Product(models.Model):
+    Vendor = models.ForeignKey(Vendor,on_delete=models.CASCADE)
+    
     name = models.CharField(max_length = 32)
     decription = models.TextField()
     image = models.ImageField()
