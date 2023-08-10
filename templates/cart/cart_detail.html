@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
+</head>
+    <body>
+        <div>
+            <h4 >
+                {{cart.products}}
+            </h4>
+            <div >
+                <img src="{{product.image.url}}" alt=""/>
+                <p>{{cart.numer_of_products}} </p>
+                <p>{{cart.total_amount}}</p>
+                <p>{{shipping_cost}}</p>
+                <p>{{cart.payment_option}}</p>
+                <p>{{cart.discount}}</p>
+                <a href="{% url 'shopping_upload_view'  %}"><button>Add To cart</button></a>
+            </div>
+        </body>
+        </div>
+</html>
+
+
+
+
+
+
+

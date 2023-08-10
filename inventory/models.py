@@ -5,7 +5,7 @@ class Product(models.Model):
     Vendor = models.ForeignKey(Vendor,on_delete=models.CASCADE)
     
     name = models.CharField(max_length = 32)
-    decription = models.TextField()
+    description = models.TextField()
     image = models.ImageField()
     price = models.DecimalField(max_digits=6,decimal_places=2)
     stock = models.PositiveIntegerField()

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products_list_view</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
+</head>
+<body>
+    <table>
+        
+            <tr>
+                <th>Products</th>
+                <th>Number of products</th>
+                <th>Total amount</th>
+                <th>Shipping cost</th>
+                <th>Payment options</th>
+                <th>Discount</th>
+            </tr>
+        
+        <tbody>
+            {% for cart in carts %}           
+            <tr>
+                <td>{{ cart.products}}</td>
+                <td>{{ cart.number_of_products}}</td>
+                <td>{{ cart.total_amount}}</td>
+                <td>{{ cart.shipping_cost}}</td>
+                <td>{{ cart.payment_options}}</td>
+                <td>{{cart.discount}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

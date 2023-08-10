@@ -1,0 +1,44 @@
+styles.css
+
+table {
+    width: 100%;
+    /* border-collapse: collapse; */
+    margin-top: 20px;
+    border-spacing: 0;
+  }
+  thead th {
+    background-color: #E9C9C9;
+    padding: 8px;
+    text-align: left;
+  }
+  tbody tr:nth-child(even) {
+    background-color: #EBE5E5;
+  }
+  tbody td {
+    padding: 8px;
+  }
+  a {
+    text-decoration: none;
+    color: #007BFF;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+#add{
+    padding: 10px 15px;
+    border: none;
+    background-color: #007BFF;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+}
+#productsName{
+    font-size: 30px;
+    text-align: center;
+}
+.moreDetails{
+  text-align: center;
+}
+#productsContent{
+margin-left: 30%;
+}

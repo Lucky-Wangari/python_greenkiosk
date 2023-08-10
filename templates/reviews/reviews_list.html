@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products_list_view</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
+</head>
+<body>
+    <table>
+        
+            <tr>
+                <th>Message</th>
+                <th>Sender</th>
+                <th>Number of Stars</th>
+            </tr>
+        
+        <tbody>
+            {% for review in reviews %}
+            <tr>
+                <td>{{ review.message}}</td>
+                <td>{{ review.sender}}</td>
+                <td>{{ review.number_of_stars}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

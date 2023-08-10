@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products_list_view</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
+</head>
+<body>
+    <table>
+        
+            <tr>
+                <th>Order Number</th>
+                <th>Order total</th>
+                <th>Products</th>
+                <th>Customer</th>
+            </tr>
+        
+        <tbody>
+            {% for orders in order %}
+            <tr>
+                <td>{{ order.order_number}}</td>
+                <td>{{ order.order_total}}</td>
+                <td>{{ order.products}}</td>
+                <td>{{order.customer}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products_list_view</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
+</head>
+<body>
+    <table>
+        
+            <tr>
+                <th>Ship</th>
+                <th>Location</th>
+                <th>Shipment Cost</th>
+                <th>Delivery Time</th>
+                <th>Delivery Status</th>
+            </tr>
+        
+        <tbody>
+            {% for shipment in shipments %}
+            <tr>
+                <td>{{ shipment.ship}}</td>
+                <td>{{ shipment.location}}</td>
+                <td>{{ shipment.shipment_cost}}</td>
+                <td>{{shipment.delivery_time}}</td>
+                <td>{{ shipment.delivery_status}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

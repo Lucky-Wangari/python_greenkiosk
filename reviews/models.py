@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Review(models.Model):
+class Reviews(models.Model):
     message = models.TextField()
     sender = models.CharField(max_length=32)
     number_of_stars = models.IntegerField()
