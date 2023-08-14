@@ -31,7 +31,7 @@ def edit_cart_view(request, id):
 
     else: 
         form = CartUploadForm(instance= cart)
-        return render(request, "cart/edit_cart.html", {"form": form})
+        return render(request, "cart/edit_cart.html", {"carts": cart})
 
 
 
