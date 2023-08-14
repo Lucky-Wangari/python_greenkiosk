@@ -20,8 +20,8 @@ def products_list(request):
 
 
 def product_detail(request,id):
-    products = Product.objects.get(id = id)
-    return render(request,"inventory/product_detail.html",{"products":products})
+    product = Product.objects.get(id = id)
+    return render(request,"inventory/product_detail.html",{"product":product})
 
 
 
@@ -31,7 +31,7 @@ def edit_product_view(request, id):
         form = ProductUploadForm(request.POST, instance= product)
         if form.valid():
             form.save()
-        return redirect("product_detail_view", id)
+        return redirect("product_details_view", id)
 
     else: 
         form = ProductUploadForm(instance=product)
