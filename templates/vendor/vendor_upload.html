@@ -3,14 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .upload-form {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .upload-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .upload-form input[type="text"],
+        .upload-form input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .upload-form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .upload-form button:hover {
+            background-color: transparent;
+            color: #007bff;
+            border: 1px solid #007bff;
+        }
+    </style>
+    <title>Vendor Upload Form</title>
 </head>
 <body>
     <h1>Vendor Upload Form</h1>
-    <form method="POST", class = "upload-form">
-        {%csrf_token%}
-        {{form.as_p}}
-        <button type="submit"> Save</button>
-    </form>  
+    <form method="POST" class="upload-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
 </body>
 </html>

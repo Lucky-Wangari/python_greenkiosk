@@ -3,14 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <title>reviews_list_view</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
 </head>
 <body>
-    <h1>Shipment Upload Form</h1>
-    <form method="POST", class = "upload-form">
-        {%csrf_token%}
-        {{form.as_p}}
-        <button type="submit"> Save</button>
-    </form>  
+    <table>
+        <tr>
+            <th>Message</th>
+            <th>Sender</th>
+            <th>Number of Stars</th>
+        </tr>
+        <tbody>
+            {% for review in reviews %}
+            <tr>
+                <td>{{ review.message }}</td>
+                <td>{{ review.sender }}</td>
+                <td>{{ review.number_of_stars }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

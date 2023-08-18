@@ -3,27 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>products_list_view</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .button {
+            display: inline-block;
+            padding: 6px 12px;
+            margin: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            user-select: none;
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        .button:hover {
+            background-color: transparent;
+            color: #007bff;
+            border-color: #007bff;
+        }
+    </style>
+    <title>orders_list_view</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
 </head>
 <body>
     <table>
-        
-            <tr>
-                <th>Order Number</th>
-                <th>Order total</th>
-                <th>Products</th>
-                <th>Customer</th>
-            </tr>
-        
+        <tr>
+            <th>Order Number</th>
+            <th>Order Total</th>
+            <th>Products</th>
+            <th>Customer</th>
+            <th>Actions</th>
+        </tr>
         <tbody>
-            {% for orders in order %}
+            {% for order in orders %}
             <tr>
-                <td>{{ order.order_number}}</td>
-                <td>{{ order.order_total}}</td>
-                <td>{{ order.products}}</td>
-                <td>{{order.customer}}</td>
+                <td>{{ order.order_number }}</td>
+                <td>{{ order.order_total }}</td>
+                <td>{{ order.products }}</td>
+                <td>{{ order.customer }}</td>
+                <td><a class="button" href="{% url 'edit_order' order.id %}">Edit</a></td>
             </tr>
             {% endfor %}
         </tbody>

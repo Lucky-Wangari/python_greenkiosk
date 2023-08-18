@@ -3,29 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .moreDetails {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        #productName {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        #productContect {
+            margin-top: 20px;
+        }
+        #productContect img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        #productContect p {
+            margin: 0;
+            color: #555;
+            font-size: 1rem;
+        }
+        #productContect span {
+            display: block;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        #productContect button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        #productContect button:hover {
+            background-color: transparent;
+            color: #007bff;
+            border: 1px solid #007bff;
+        }
+    </style>
+    <title>Product Details</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
 </head>
-    <body>
-        <div class="moreDetails">
-            <h4 id="productName">
-                {{product.title}}
-            </h4>
-            <div id="productContect">
-                <img src="{{product.image.url}}" alt=""/>
-                <p>{{product.description}} </p>
-                <span>{{product.price}} </span>
-                <a href="{%  url 'product_detail_view' id=product.id %}"> <button>Add to Cart</button>  </a>
-                
-            </div>
-        </body>
+<body>
+    <div class="moreDetails">
+        <h4 id="productName">{{ product.title }}</h4>
+        <div id="productContect">
+            <img src="{{ product.image.url }}" alt="Product Image">
+            <p>{{ product.description }}</p>
+            <span>{{ product.price }}</span>
+            <a href="{% url 'cart_list_view' %}">
+                <button>Add to Cart</button>
+                <a href="{% url ''}">
+                <button>Payment</button>
+            </a>
         </div>
+    </div>
+</body>
 </html>
-
-
-
-
-
-
-
