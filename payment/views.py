@@ -18,4 +18,8 @@ def payment_list(request):
     payments = Payment.objects.all()
     return render(request,"payment/payment_list.html",{"payments":payments})
 
+def payment_detail(request,id):
+    payment = Payment.objects.get(id = id)
+    return render(request,"payment/payment_detail.html",{"payments":payment})
+
 

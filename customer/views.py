@@ -6,7 +6,7 @@ from customer.models import Customer
 def upload_customer(request):
     if request.method == "POST":
         form = CustomerUploadForm(request.POST)
-        if form.isvalid():
+        if form.is_valid():
             form.save()
     else:
         form = CustomerUploadForm()

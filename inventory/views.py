@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 def upload_product(request):
     if request.method == "POST":
         form = ProductUploadForm(request.POST)
-        if form.isvalid():
+        if form.is_valid():
             form.save()
     else:
         form = ProductUploadForm()
@@ -29,7 +29,7 @@ def edit_product_view(request, id):
     product = Product.objects.get(id=id)
     if request.method == "POST":
         form = ProductUploadForm(request.POST, instance= product)
-        if form.valid():
+        if form.is_valid():
             form.save()
         return redirect("product_details_view", id)
 

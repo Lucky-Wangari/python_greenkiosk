@@ -44,12 +44,47 @@
             display: block;
             margin-top: 15px;
         }
+          nav {
+        background-color: #007bff;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        }
+
+         nav p {
+        font-size: 1.5rem;
+        margin: 0;
+         }
+
+         nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: bold;
+         }
+
+         nav a:hover {
+        text-decoration: underline;
+       }
+</style>
+
     </style>
     <title>products_list_view</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
 </head>
 <body>
+    <div>
+        <nav>
+            <p>Luckiesha Groceries</p>
+        <a>Home</a>
+        <a>Products</a>
+        <a>Deliveries</a>
+        <a></a>
+        </nav>
+    </div>
     <div class="main">
         {% for product in products %}
             <div class="product">

@@ -14,24 +14,76 @@
             align-items: center;
             min-height: 100vh;
         }
-        table {
-            border-collapse: collapse;
-            width: 80%;
+        
+        .container {
             max-width: 800px;
             margin: 0 auto;
             background-color: white;
             box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
         }
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
+        
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        th {
+        
+        .product-details {
+            flex: 1;
+        }
+        
+        .product-details h4 {
+            margin: 0;
+            font-size: 18px;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .actions a,
+        .actions button {
+            text-decoration: none;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .actions a {
             background-color: #007bff;
             color: white;
         }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
+        
+        .actions button {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .totals {
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .totals h4 {
+            margin: 5px 0;
+        }
+        
+        .checkout-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
         }
     </style>
     <title>products_list_view</title>
@@ -39,27 +91,25 @@
     <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
 </head>
 <body>
-    <table>
-        <tr>
-            <th>Products</th>
-            <th>Number of products</th>
-            <th>Total amount</th>
-            <th>Shipping cost</th>
-            <th>Payment options</th>
-            <th>Discount</th>
-        </tr>
-        <tbody>
-            {% for cart in carts %}
-            <tr>
-                <td>{{ cart.products }}</td>
-                <td>{{ cart.number_of_products }}</td>
-                <td>{{ cart.total_amount }}</td>
-                <td>{{ cart.shipping_cost }}</td>
-                <td>{{ cart.payment_options }}</td>
-                <td>{{ cart.discount }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        {% for cart in carts %}
+            <div class="product">
+                <div class="product-details">
+                    <h4>Number of products: {{ cart.number_of_products }}</h4>
+                    <p>Total Amount: {{ cart.total }}</p>
+                    <p>Shipping Cost: {{ cart.shipping_cost }}</p>
+                </div>
+                <div class="actions">
+                    <a href="{% url 'product_detail_view' id=cart.id %}">View More</a>
+                    <button>Delete</button>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="totals">
+           
+           
+            <a href="{% url 'payment_list_view' %}" class="checkout-button">Checkout</a>
+        </div>
+    </div>
 </body>
 </html>

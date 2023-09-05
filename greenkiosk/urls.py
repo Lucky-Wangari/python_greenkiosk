@@ -30,8 +30,9 @@ urlpatterns = [
     path('payment/', include('payment.urls')),
     path('reviews/', include('reviews.urls')),
     path('shipment/',include('shipment.urls')),
-    path('vendor', include('vendor.urls')),
-   
+    path('vendor/', include('vendor.urls')),
+    path('payment/', include('payment.urls')),
+    path('api/', include('api.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
